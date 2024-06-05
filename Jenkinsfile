@@ -1,13 +1,13 @@
 pipeline {
     agent any 
     environment {
-    DOCKERHUB_CREDENTIALS = credentials('credentials for jenkins')
+    DOCKERHUB_CREDENTIALS = credentials('usercharan')
     }
     stages { 
 
         stage('Build docker image') {
             steps {  
-                sh 'docker build -t ylmt/flaskapp:$BUILD_NUMBER .'
+                sh 'docker build -t  usercharan/flaskapp:$BUILD_NUMBER .'
             }
         }
         stage('login to dockerhub') {
@@ -17,7 +17,7 @@ pipeline {
         }
         stage('push image') {
             steps{
-                sh 'docker push ylmt/flaskapp:$BUILD_NUMBER'
+                sh 'docker push  usercharan/flaskapp:$BUILD_NUMBER'
             }
         }
 }
